@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drsgr3qh2w3hj"]
+
+[ext_resource type="AudioStream" uid="uid://wc5oycqah1b4" path="res://towers.mp3" id="2_p8g0a"]
+
+[node name="Node" type="Node"]
+
+[node name="Towers" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_p8g0a")
+autoplay = true

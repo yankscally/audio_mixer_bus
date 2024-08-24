@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://yx1w4fyuri3f"]
+
+[ext_resource type="Script" path="res://addons/audio_mixer_bus/audio_mixer_control/mixer/mixer_control.gd" id="1_rxo4x"]
+[ext_resource type="Script" path="res://addons/audio_mixer_bus/save_layout.gd" id="3_ojjtt"]
+
+[node name="control_mixer" type="Control"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxo4x")
+
+[node name="bg" type="Panel" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="contents" type="VBoxContainer" parent="bg/margin"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="mixer_controls" type="HBoxContainer" parent="bg/margin/contents"]
+auto_translate_mode = 1
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="mixer_info" type="Label" parent="bg/margin/contents/mixer_controls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mixer"
+
+[node name="overlay" type="Panel" parent="bg/margin/contents/mixer_controls"]
+layout_mode = 2
+
+[node name="save_layout" type="Button" parent="bg/margin/contents/mixer_controls"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "save layout.."
+script = ExtResource("3_ojjtt")
+
+[node name="add_bus" type="Button" parent="bg/margin/contents/mixer_controls"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+text = "add bus+"
+
+[node name="bus_name" type="LineEdit" parent="bg/margin/contents/mixer_controls"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "bus"
+placeholder_text = "bus name.."
+
+[node name="pop_in" type="Button" parent="bg/margin/contents/mixer_controls"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "<"
+
+[node name="pop_out" type="Button" parent="bg/margin/contents/mixer_controls"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = ">"
+
+[node name="scroll_buses" type="ScrollContainer" parent="bg/margin/contents"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="buses" type="HBoxContainer" parent="bg/margin/contents/scroll_buses"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="bg/margin/contents/mixer_controls/add_bus" to="." method="_on_add_bus_pressed"]
+[connection signal="text_changed" from="bg/margin/contents/mixer_controls/bus_name" to="." method="_on_bus_name_text_changed"]
+[connection signal="pressed" from="bg/margin/contents/mixer_controls/pop_in" to="." method="_on_pop_in_pressed"]
+[connection signal="pressed" from="bg/margin/contents/mixer_controls/pop_out" to="." method="_on_pop_out_pressed"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/Master" to="bg/margin/contents/scroll_buses/buses/Master" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus" to="bg/margin/contents/scroll_buses/buses/New Bus" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 2" to="bg/margin/contents/scroll_buses/buses/New Bus 2" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 3" to="bg/margin/contents/scroll_buses/buses/New Bus 3" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 4" to="bg/margin/contents/scroll_buses/buses/New Bus 4" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 5" to="bg/margin/contents/scroll_buses/buses/New Bus 5" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 6" to="bg/margin/contents/scroll_buses/buses/New Bus 6" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 7" to="bg/margin/contents/scroll_buses/buses/New Bus 7" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 8" to="bg/margin/contents/scroll_buses/buses/New Bus 8" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 9" to="bg/margin/contents/scroll_buses/buses/New Bus 9" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 10" to="bg/margin/contents/scroll_buses/buses/New Bus 10" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 11" to="bg/margin/contents/scroll_buses/buses/New Bus 11" method="_on_resized"]
+[connection signal="resized" from="bg/margin/contents/scroll_buses/buses/New Bus 12" to="bg/margin/contents/scroll_buses/buses/New Bus 12" method="_on_resized"]
